@@ -93,11 +93,35 @@ button:hover {
     margin-top: 0;
 }
 
+/* ... (中略：既存のスタイル) ... */
+
 #rhymeOutput {
-    white-space: pre-wrap; /* 改行を反映させる */
+    /* リアルタイム反映のため、textareaを非表示にして、
+       output divをtextareaと同じスタイルにする */
+    width: 90%;
+    min-height: 250px; /* 見た目の調整 */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: left;
+    white-space: pre-wrap;
     word-wrap: break-word;
-    font-size: 1.2em;
-    line-height: 2.0;
+    /* 編集不可にする */
+    pointer-events: none;
+    background-color: #fff;
+    box-sizing: border-box; /* padding込みで幅が90%になるように */
+}
+
+/* ユーザーの入力用textareaは非表示にし、そのonChangeイベントを使う */
+#lyricInput {
+    opacity: 0; /* 見た目を消す */
+    position: absolute; /* 位置をずらして見えなくする */
+    pointer-events: auto; /* クリックはできるように */
+    width: 90%;
+    height: 250px;
+    z-index: 10;
 }
 
 /* 韻のハイライト用スタイル（JavaScriptで動的にクラスが適用される） */
@@ -107,6 +131,8 @@ button:hover {
     border-radius: 4px;
     /* 色はJavaScriptで動的に設定されます */
 }
+
+/* ... (中略：既存のスタイル) ... */
 
 footer {
     margin-top: 40px;
