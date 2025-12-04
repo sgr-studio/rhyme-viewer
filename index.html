@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韻踏み視覚化アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 韻踏み視覚化ツール 🎨</h1>
+        <p>テキストを入力して、「分析する」ボタンを押すと、自動で韻を踏んでいると思われる箇所が色付けされます。</p>
+        
+        <textarea id="lyricInput" rows="10" placeholder="ここにラップのリリックや文章を入力してください..."></textarea>
+        
+        <div class="controls">
+            <label for="minLength">最短の韻の長さ:</label>
+            <input type="number" id="minLength" value="3" min="2">
+            <label for="minWords">単語間の最大距離:</label>
+            <input type="number" id="minWords" value="5" min="2">
+        </div>
+
+        <button onclick="analyzeRhymes()">分析する</button>
+        
+        <div id="output">
+            <h2>分析結果</h2>
+            <div id="rhymeOutput"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>※ 本アプリの韻の判定は簡易的なものです。</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
